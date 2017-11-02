@@ -24,6 +24,7 @@ echo Done installing
 pause
 exit /b
 :addpath
-set PATH=%PATH%;C:\Program Files (x86)\CMDextension\Commands
+::set PATH=%PATH%;C:\Program Files (x86)\CMDextension\Commands
+PATH %PATH%;C:\Program Files (x86)\CMDextension\Commands
 if not %errorlevel% == 0 echo Error! Something went wrong with adding path
 goto afteraddpath
