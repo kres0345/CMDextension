@@ -1,5 +1,5 @@
 @echo off
-set s=/^?
+rem set s=/^?
 if [%1] == [] echo The syntax of the command is incorrect. && exit /b
 if [%1] == [/?] goto help
 powershell "$s=(New-Object -COM WScript.Shell).CreateShortcut('%2');$s.TargetPath='%1';$s.Save()"
