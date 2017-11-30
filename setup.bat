@@ -6,25 +6,10 @@ echo No admin rights detected.
 pause
 exit /b
 :continue
-set /p q1="Do you want to add the files to enviroment PATH?[y/n] "
-if q1 == y goto addpath
-:afteraddpath
-echo Below only recommended if you didnt add to PATH
-set /p q2="Do you want a desktop shortcut with cmd open in commands root?[y/n] "
-if q2 == y copy CMDextension.lnk "C:\Users\%username%\Desktop\CMDextension.lnk"
-::Creates folder in Program Files(x86)
-echo Creating folder in "C:\Program Files (x86)\CMDextension"
-md "C:\Program Files (x86)\CMDextension"
-if not %errorlevel% == 0 echo Error! creating folder went wrong(probaly admin rights).
-echo Copy'ing Commands folder into "C:\Program Files (x86)\CMDextension"
-copy commands "C:\Program Files (x86)\CMDextension"
-if not %errorlevel% == 0 echo Error! Coulnt copy files.
-
+rem my second try to install
+echo Note you can also just add the Commands to PATH and ignore this .bat file
+set /p q3="Are you sure you wan't to install CMDextension in the C:\Windows folder[y/n]: "
+if q3 == y copy Commands\* "C:\Windows" && echo Tried to install it in C:\Windows
 echo Done installing
 pause
 exit /b
-:addpath
-::set PATH=%PATH%;C:\Program Files (x86)\CMDextension\Commands
-PATH %PATH%;C:\Program Files (x86)\CMDextension\Commands
-if not %errorlevel% == 0 echo Error! Something went wrong with adding path
-goto afteraddpath
