@@ -1,6 +1,6 @@
 @echo off
 set s=/^?
-if [%1] == [] echo The syntax of the command is incorrect. && exit /b
+if [%1] == [] echo The syntax of the command is incorrect.
 if [%1] == [/?] goto help
 if [%1] == [/T] goto cleantemp
 if [%2] == [/T] goto cleantemp
@@ -8,12 +8,11 @@ if [%2] == [/T] goto cleantemp
 if [%1] == [/r] goto recyclebin
 if [%2] == [/r] goto recyclebin
 :after/r
-
 exit /b
 :help
 echo Cleans temp folders. (Part of CMDextension.)
 echo.
-echo CLEAN [/T] [/?]
+echo CLEAN [/?] [/T] [/r]
 echo.
 echo  /T	Cleans the standard windows %%%TEMP%% folder.
 echo .%s%	Displays this help menu.
