@@ -30,6 +30,7 @@ goto after/T
 :recyclebin
 rem cleans recyclebin
 echo Cleaning Recyclebin
+:: rmdir /s %systemdrive%\$RECYCLE.BIN\S-1-5-21-3385365861-3447484919-3433003961-1001 ::unstable
 rmdir /s %systemdrive%\$Recycle.bin
 if %errorlevel% == 1 echo Error occured, try to elevate command prompt(admin rights)
 echo Done
